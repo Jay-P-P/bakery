@@ -167,7 +167,7 @@ body {
 
 .subheading-1 {
   @extend %subheading;
-  color: $green;
+  color: $red;
   transform: rotate(5deg);
   grid-area: 2 / 6 / 3 / 12;
 }
@@ -271,7 +271,7 @@ body {
 
   tbody tr {
     .item {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       font-family: $subheading-font;
       text-align: left;
       color: $body-color;
@@ -281,7 +281,7 @@ body {
     td {
       text-align: right;
       vertical-align: middle;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       color: $yellow;
       font-family: $item-font-stack;
     }

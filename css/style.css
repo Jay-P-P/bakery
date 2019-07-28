@@ -144,7 +144,7 @@ body {
 }
 
 .subheading-1 {
-  color: #0aff80;
+  color: #fe7066;
   transform: rotate(5deg);
   grid-area: 2/6/3/12;
 }
@@ -216,7 +216,7 @@ body {
   text-align: left;
 }
 .category tbody tr .item {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-family: "Shadows Into Light", cursive;
   text-align: left;
   color: #fff;
@@ -225,7 +225,7 @@ body {
 .category tbody tr td {
   text-align: right;
   vertical-align: middle;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: #fffb2a;
   font-family: "Muli", Tahoma, Arial, sans-serif;
 }
