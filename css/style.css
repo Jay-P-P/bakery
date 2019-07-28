@@ -1,0 +1,244 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root, html {
+  font-size: 20px;
+  font-family: "Pacifico", cursive, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #fff;
+  position: relative;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: max-content;
+  overflow: hidden;
+}
+
+.hero {
+  grid-row: 1/2;
+  grid-column: 1/10;
+  text-align: center;
+  padding: 2rem;
+}
+.hero h1 {
+  font-size: 5rem;
+  color: #fe7066;
+  margin: 0 auto;
+}
+.hero h1 a {
+  color: #fe7066;
+  text-decoration: none;
+}
+.hero h1 a:visited, .hero h1 a:focus {
+  color: #fe7066;
+}
+.hero h1 a:hover {
+  color: black;
+}
+
+.nav {
+  color: #fe7066;
+}
+.nav a {
+  font-size: 1.8rem;
+  color: #33a2ff;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  transition: border 250ms ease;
+}
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  overflow: hidden;
+  height: 100%;
+  z-index: -1;
+  border-bottom: 5px solid #33a2ff;
+  transition: all 500ms ease;
+}
+.nav a:hover {
+  color: black;
+}
+.nav a:hover::after {
+  width: 100%;
+}
+
+.bakery, .cinnamon-rolls, .macaroon, .cupcake-2, .cupcake-1, .cake-1 {
+  align-self: center;
+  justify-self: center;
+  width: auto;
+  max-height: 100%;
+  transition: transform 300ms ease-in-out;
+}
+.bakery img, .cinnamon-rolls img, .macaroon img, .cupcake-2 img, .cupcake-1 img, .cake-1 img {
+  width: 100%;
+  height: 100%;
+  transition: box-shadow 250ms ease;
+}
+.bakery:hover, .cinnamon-rolls:hover, .macaroon:hover, .cupcake-2:hover, .cupcake-1:hover, .cake-1:hover {
+  transform: scale(1.5) rotate(0);
+}
+.bakery:hover img, .cinnamon-rolls:hover img, .macaroon:hover img, .cupcake-2:hover img, .cupcake-1:hover img, .cake-1:hover img {
+  box-shadow: none;
+}
+
+.cake-1 {
+  grid-area: 1/10/2/12;
+  transform: rotate(20deg);
+}
+.cake-1 img {
+  box-shadow: 1.5rem 1.3rem #0aff80;
+}
+
+.cupcake-1 {
+  grid-area: 2/2/3/5;
+  transform: rotate(-10deg);
+}
+.cupcake-1 img {
+  box-shadow: 1.5rem 1.3rem #fffb2a;
+}
+
+.cupcake-2 {
+  grid-area: 2/10/4/12;
+  align-self: center;
+  transform: rotate(10deg);
+}
+.cupcake-2 img {
+  box-shadow: 1.5rem 1.3rem #fffb2a;
+}
+
+.macaroon {
+  grid-area: 4/2/5/6;
+  transform: rotate(-10deg);
+}
+.macaroon img {
+  box-shadow: 1.5rem 1.3rem #fe7066;
+}
+
+.cinnamon-rolls {
+  grid-area: 4/9/6/11;
+  transform: rotate(10deg);
+}
+.cinnamon-rolls img {
+  box-shadow: 1.5rem 1.3rem #33a2ff;
+}
+
+.subheading-3, .subheading-2, .subheading-1 {
+  margin: 2rem;
+  padding: 1rem;
+  font-size: 2.4rem;
+  align-self: center;
+  text-align: center;
+  font-family: "Shadows Into Light", cursive;
+}
+
+.subheading-1 {
+  color: #0aff80;
+  transform: rotate(5deg);
+  grid-area: 2/6/3/12;
+}
+
+.subheading-2 {
+  transform: rotate(-10deg);
+  color: #33a2ff;
+  grid-area: 3/2/4/6;
+}
+
+.subheading-3 {
+  grid-area: 3/7/4/10;
+  transform: rotate(15deg);
+  color: #33a2ff;
+}
+
+.history {
+  grid-area: 6/2/8/10;
+  padding: 10rem 1rem;
+}
+.history h2 {
+  font-size: 2.5rem;
+  color: #0aff80;
+}
+.history p {
+  font-family: "Shadows Into Light", cursive;
+  font-size: 1.5rem;
+}
+
+.bakery {
+  grid-area: 7/10/8/12;
+  transform: rotate(15deg);
+}
+.bakery img {
+  box-shadow: 1.5rem 1.3rem #0aff80;
+}
+
+.menu {
+  grid-area: 9/1/11/13;
+  background-color: #ff5070;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.menu-header {
+  grid-area: 9/4/10/10;
+  z-index: 2;
+  text-align: center;
+  transform: translateY(-60%);
+  text-shadow: 3px 5px #33a2ff;
+  font-family: "Lobster", "Pacifico", cursive;
+  font-size: 4rem;
+}
+
+.category {
+  max-width: 50%;
+  margin: 3rem auto 0 auto;
+  border-spacing: 3rem 2rem;
+}
+.category thead tr td {
+  font-size: 2.4rem;
+}
+.category thead tr .heading {
+  font-size: 1.2rem;
+  color: black;
+  text-align: right;
+}
+.category thead tr td:nth-child(1) {
+  text-align: left;
+}
+.category tbody tr .item {
+  font-size: 1.4rem;
+  font-family: "Shadows Into Light", cursive;
+  text-align: left;
+  color: #fff;
+  letter-spacing: 3px;
+}
+.category tbody tr td {
+  text-align: right;
+  vertical-align: middle;
+  font-size: 1.2rem;
+  color: #fffb2a;
+  font-family: "Muli", Tahoma, Arial, sans-serif;
+}
+
+@media screen and (max-width: 800px) {
+  :root {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 480px) {
+  :root {
+    font-size: 10px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
