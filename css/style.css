@@ -11,7 +11,7 @@
 }
 
 body {
-  background-color: #fff;
+  background-color: #fffb2a;
   position: relative;
 }
 
@@ -106,7 +106,7 @@ body {
   transform: rotate(-10deg);
 }
 .cupcake-1 img {
-  box-shadow: 1.5rem 1.3rem #fffb2a;
+  box-shadow: 1.5rem 1.3rem #ff5070;
 }
 
 .cupcake-2 {
@@ -115,7 +115,7 @@ body {
   transform: rotate(10deg);
 }
 .cupcake-2 img {
-  box-shadow: 1.5rem 1.3rem #fffb2a;
+  box-shadow: 1.5rem 1.3rem #ff5070;
 }
 
 .macaroon {
@@ -219,7 +219,7 @@ body {
   font-size: 1.6rem;
   font-family: "Shadows Into Light", cursive;
   text-align: left;
-  color: #fff;
+  color: white;
   letter-spacing: 3px;
 }
 .category tbody tr td {

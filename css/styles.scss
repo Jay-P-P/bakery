@@ -131,7 +131,7 @@ body {
   @extend %cake;
   grid-area: 2 / 2 / 3 / 5;
   transform: rotate(-10deg);
-  @include img-shadow($yellow);
+  @include img-shadow($pink);
 }
 
 .cupcake-2 {
@@ -139,7 +139,7 @@ body {
   grid-area: 2/10/4/12;
   align-self: center;
   transform: rotate(10deg);
-  @include img-shadow($yellow);
+  @include img-shadow($pink);
 }
 
 .macaroon {
@@ -274,7 +274,7 @@ body {
       font-size: 1.6rem;
       font-family: $subheading-font;
       text-align: left;
-      color: $body-color;
+      color: white;
       letter-spacing: 3px;
     }
 
