@@ -6,11 +6,12 @@
   } 
 }
 
-@mixin bg-strip($degree, $firstPercentage, $secondPercentage, $color) {
-  background-image: -moz-linear-gradient($degree, transparent $firstPercentage, $color $firstPercentage, $color $secondPercentage, transparent $secondPercentage);
-  background-image: -o-linear-gradient($degree, transparent $firstPercentage, $color $firstPercentage, $color $secondPercentage, transparent $secondPercentage);
-  background-image: -webkit-linear-gradient($degree, transparent $firstPercentage, $color $firstPercentage, $color $secondPercentage, transparent $secondPercentage);
-  background-image: linear-gradient($degree, transparent $firstPercentage, $color $firstPercentage, $color $secondPercentage, transparent $secondPercentage);
+@mixin sub-heading($font-size) {
+  h2 {
+    font-size: $font-size;
+    font-family: $subheading-font-stack;
+    text-shadow: 2px 4px $blue;
+  }
 }
 
 * {
@@ -34,7 +35,7 @@ body {
 .grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-auto-rows: max-content;
+  grid-auto-rows: min-content;
   overflow: hidden;
 }
 
@@ -73,6 +74,7 @@ body {
     text-decoration: none;
     display: inline-block;
     position: relative;
+    margin: 0 0.5rem;
     transition: border 250ms ease;
 
     &::after {
@@ -99,17 +101,19 @@ body {
   }
 }
 
-%cake {
+.image {
   align-self: center;
   justify-self: center;
   width: auto;
   max-height: 100%;
-  transition: transform 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
 
   img {
     width: 100%;
     height: 100%;
-    transition: box-shadow 250ms ease;
+    opacity: 0;
+    transform: scale(0.2);
+    transition: box-shadow 250ms ease, opacity 300ms ease, transform 250ms ease;
   }
 
   &:hover {
@@ -121,114 +125,123 @@ body {
 }
 
 .cake-1 {
-  @extend %cake;
   grid-area: 1 / 10 / 2 / 12;
   transform: rotate(20deg);
   @include img-shadow($green);
 }
 
 .cupcake-1 {
-  @extend %cake;
   grid-area: 2 / 2 / 3 / 5;
   transform: rotate(-10deg);
   @include img-shadow($pink);
 }
 
 .cupcake-2 {
-  @extend %cake;
   grid-area: 2/10/4/12;
   align-self: center;
   transform: rotate(10deg);
   @include img-shadow($pink);
 }
 
-.macaroon {
-  @extend %cake;
+.macaron {
   grid-area: 4 / 2 / 5 / 6;
   transform: rotate(-10deg);
   @include img-shadow($red);
 }
 
 .cinnamon-rolls {
-  @extend %cake;
-  grid-area: 4 / 9 / 6 / 11;
+  grid-area: 4 / 10 / 6 / 12;
   transform: rotate(10deg);
   @include img-shadow($blue);
 }
 
-%subheading {
+.bread {
+  grid-area: 5 / 10 / 7 / 12;
+  align-self: center;
+  transform: translateY(8rem) rotate(-10deg);
+  @include img-shadow($red);
+}
+
+.bakery {
+  grid-area: 7 / 10 / 8 / 12;
+  transform: rotate(15deg);
+  @include img-shadow($green);
+}
+
+.subheading {
   margin: 2rem;
   padding: 1rem;
   font-size: 2.4rem;
   align-self: center;
   text-align: center;
-  font-family: $subheading-font;
+  opacity: 0;
+  transition: opacity 500ms ease;
+  font-family: $message-font;
 }
 
 .subheading-1 {
-  @extend %subheading;
   color: $red;
   transform: rotate(5deg);
-  grid-area: 2 / 6 / 3 / 12;
+  grid-area: 2 / 5 / 3 / 11;
 }
 
 .subheading-2 {
-  @extend %subheading;
   transform: rotate(-10deg);
   color: $blue;
   grid-area: 3 / 2 / 4 / 6;
 }
 
 .subheading-3 {
-  @extend %subheading;
   grid-area: 3 / 7 / 4 / 10;
   transform: rotate(15deg);
   color: $blue;
 }
 
-%bg {
-  z-index: -10;
-  background-color: transparent;
+.hours {
+  padding: 5rem 1rem;
+  grid-area: 5 / 2 / 6 / 10;
+  opacity: 0;
+  transform: translateX(-100vw);
+  transition: all 500ms ease;
+
+  @include sub-heading(2.5rem);
+
+  table {
+    margin-top: 0.5rem;
+    border-spacing: 0px 0px;
+    border: 3px solid black;
+    border-radius: 20px;
+
+    tr td {
+      font-family: $item-font-stack;
+      font-size: 1.2rem;
+      padding: 1rem;
+    }
+  }
 }
 
-// .bg-1 {
-//   @extend %bg;
-//   grid-area: 1 / 1 / 3 / 13;
-//   @include bg-strip(-5deg, 50%, 70%, $blue);
-// }
-
-// .bg-2 {
-//   @extend %bg;
-//   grid-area: 2 / 1 / 4 / 13;
-//   @include bg-strip(5deg, 40%, 55%, $red);
-// }
-
-// .bg-3 {
-//   @extend %bg;
-//   grid-area: 4 / 1 / 5 / 13;
-//   @include bg-strip(-5deg, 45%, 60%, $yellow);
-// }
+#current-day {
+  color: white;
+  background-color: $blue;
+  td {
+    font-weight: bold;
+  }
+}
 
 .history {
   grid-area: 6 / 2 / 8 / 10;
-  padding: 10rem 1rem;
+  padding: 5rem 1rem;
+  transform: translateY(100%);
+  transition: all 500ms ease;
 
-  h2 {
-    font-size: 2.5rem;
-    color: $green;
-  }
+  @include sub-heading(2.5rem);
 
   p {
-    font-family: $subheading-font;
+    font-family: $message-font;
     font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
   }
-}
-
-.bakery {
-  @extend %cake;
-  grid-area: 7 / 10 / 8 / 12;
-  transform: rotate(15deg);
-  @include img-shadow($green);
 }
 
 .menu {
@@ -243,8 +256,8 @@ body {
   z-index: 2;
   text-align: center;
   transform: translateY(-60%);
-  text-shadow: 3px 5px $blue;
-  font-family: $menu-header-font;
+  text-shadow: 2px 4px $blue;
+  font-family: $subheading-font-stack;
   font-size: 4rem;
 }
 
@@ -272,7 +285,7 @@ body {
   tbody tr {
     .item {
       font-size: 1.6rem;
-      font-family: $subheading-font;
+      font-family: $message-font;
       text-align: left;
       color: white;
       letter-spacing: 3px;
@@ -288,6 +301,34 @@ body {
   }
 }
 
+footer {
+  height: 5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    text-align: center;
+    font-size: 1rem;
+    font-family: $item-font-stack;
+
+    a { 
+      color: black;
+      text-decoration: none;
+      border-bottom: 2px dashed $red;
+    }
+
+    a:visited {
+      color: black;
+    }
+
+    a:hover {
+      color: $red;
+    }
+  }
+}
+
 @media screen and (max-width: 800px) {
   :root {
     font-size: 15px;
@@ -299,3 +340,5 @@ body {
     font-size: 10px;
   }
 }
+
+@import 'animations';

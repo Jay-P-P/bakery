@@ -4,14 +4,13 @@ $red: #fe7066;
 $blue: #33a2ff;
 $pink: #ff5070;
 $body-color: $yellow;
+$linear-gradient: linear-gradient(90deg, $red 25%, $blue 50%, $green, 75%, $yellow 100%);
 $heading-font-size: 5rem;
 $root-font-size: 20px;
 $font-stack: 'Pacifico', cursive, sans-serif;
-$subheading-font: 'Shadows Into Light', cursive;
+$message-font: 'Shadows Into Light', cursive;
 
 
 // MENU VARIABLES
-$menu-header-font: 'Lobster', 'Pacifico', cursive;
-$category-title-color: $red;
-$category-item-color: $green;
+$subheading-font-stack: 'Lobster', 'Pacifico', cursive;
 $item-font-stack: 'Muli', Tahoma, Arial, sans-serif;

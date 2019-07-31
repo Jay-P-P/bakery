@@ -18,7 +18,7 @@ body {
 .grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-auto-rows: max-content;
+  grid-auto-rows: min-content;
   overflow: hidden;
 }
 
@@ -53,6 +53,7 @@ body {
   text-decoration: none;
   display: inline-block;
   position: relative;
+  margin: 0 0.5rem;
   transition: border 250ms ease;
 }
 .nav a::after {
@@ -74,22 +75,24 @@ body {
   width: 100%;
 }
 
-.bakery, .cinnamon-rolls, .macaroon, .cupcake-2, .cupcake-1, .cake-1 {
+.image {
   align-self: center;
   justify-self: center;
   width: auto;
   max-height: 100%;
-  transition: transform 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
 }
-.bakery img, .cinnamon-rolls img, .macaroon img, .cupcake-2 img, .cupcake-1 img, .cake-1 img {
+.image img {
   width: 100%;
   height: 100%;
-  transition: box-shadow 250ms ease;
+  opacity: 0;
+  transform: scale(0.2);
+  transition: box-shadow 250ms ease, opacity 300ms ease, transform 250ms ease;
 }
-.bakery:hover, .cinnamon-rolls:hover, .macaroon:hover, .cupcake-2:hover, .cupcake-1:hover, .cake-1:hover {
+.image:hover {
   transform: scale(1.5) rotate(0);
 }
-.bakery:hover img, .cinnamon-rolls:hover img, .macaroon:hover img, .cupcake-2:hover img, .cupcake-1:hover img, .cake-1:hover img {
+.image:hover img {
   box-shadow: none;
 }
 
@@ -118,35 +121,54 @@ body {
   box-shadow: 1.5rem 1.3rem #ff5070;
 }
 
-.macaroon {
+.macaron {
   grid-area: 4/2/5/6;
   transform: rotate(-10deg);
 }
-.macaroon img {
+.macaron img {
   box-shadow: 1.5rem 1.3rem #fe7066;
 }
 
 .cinnamon-rolls {
-  grid-area: 4/9/6/11;
+  grid-area: 4/10/6/12;
   transform: rotate(10deg);
 }
 .cinnamon-rolls img {
   box-shadow: 1.5rem 1.3rem #33a2ff;
 }
 
-.subheading-3, .subheading-2, .subheading-1 {
+.bread {
+  grid-area: 5/10/7/12;
+  align-self: center;
+  transform: translateY(8rem) rotate(-10deg);
+}
+.bread img {
+  box-shadow: 1.5rem 1.3rem #fe7066;
+}
+
+.bakery {
+  grid-area: 7/10/8/12;
+  transform: rotate(15deg);
+}
+.bakery img {
+  box-shadow: 1.5rem 1.3rem #0aff80;
+}
+
+.subheading {
   margin: 2rem;
   padding: 1rem;
   font-size: 2.4rem;
   align-self: center;
   text-align: center;
+  opacity: 0;
+  transition: opacity 500ms ease;
   font-family: "Shadows Into Light", cursive;
 }
 
 .subheading-1 {
   color: #fe7066;
   transform: rotate(5deg);
-  grid-area: 2/6/3/12;
+  grid-area: 2/5/3/11;
 }
 
 .subheading-2 {
@@ -161,25 +183,54 @@ body {
   color: #33a2ff;
 }
 
+.hours {
+  padding: 5rem 1rem;
+  grid-area: 5/2/6/10;
+  opacity: 0;
+  transform: translateX(-100vw);
+  transition: all 500ms ease;
+}
+.hours h2 {
+  font-size: 2.5rem;
+  font-family: "Lobster", "Pacifico", cursive;
+  text-shadow: 2px 4px #33a2ff;
+}
+.hours table {
+  margin-top: 0.5rem;
+  border-spacing: 0px 0px;
+  border: 3px solid black;
+  border-radius: 20px;
+}
+.hours table tr td {
+  font-family: "Muli", Tahoma, Arial, sans-serif;
+  font-size: 1.2rem;
+  padding: 1rem;
+}
+
+#current-day {
+  color: white;
+  background-color: #33a2ff;
+}
+#current-day td {
+  font-weight: bold;
+}
+
 .history {
   grid-area: 6/2/8/10;
-  padding: 10rem 1rem;
+  padding: 5rem 1rem;
+  transform: translateY(100%);
+  transition: all 500ms ease;
 }
 .history h2 {
   font-size: 2.5rem;
-  color: #0aff80;
+  font-family: "Lobster", "Pacifico", cursive;
+  text-shadow: 2px 4px #33a2ff;
 }
 .history p {
   font-family: "Shadows Into Light", cursive;
   font-size: 1.5rem;
-}
-
-.bakery {
-  grid-area: 7/10/8/12;
-  transform: rotate(15deg);
-}
-.bakery img {
-  box-shadow: 1.5rem 1.3rem #0aff80;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 .menu {
@@ -194,7 +245,7 @@ body {
   z-index: 2;
   text-align: center;
   transform: translateY(-60%);
-  text-shadow: 3px 5px #33a2ff;
+  text-shadow: 2px 4px #33a2ff;
   font-family: "Lobster", "Pacifico", cursive;
   font-size: 4rem;
 }
@@ -230,6 +281,30 @@ body {
   font-family: "Muli", Tahoma, Arial, sans-serif;
 }
 
+footer {
+  height: 5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer p {
+  text-align: center;
+  font-size: 1rem;
+  font-family: "Muli", Tahoma, Arial, sans-serif;
+}
+footer p a {
+  color: black;
+  text-decoration: none;
+  border-bottom: 2px dashed #fe7066;
+}
+footer p a:visited {
+  color: black;
+}
+footer p a:hover {
+  color: #fe7066;
+}
+
 @media screen and (max-width: 800px) {
   :root {
     font-size: 15px;
@@ -239,6 +314,30 @@ body {
   :root {
     font-size: 10px;
   }
+}
+.hours-enter {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.history-enter {
+  transform: translateY(0);
+}
+
+.tables-left-initial {
+  opacity: 0;
+  transform: translateX(-100vw);
+}
+
+.tables-right-initial {
+  opacity: 0;
+  transform: translateX(100vw);
+}
+
+.tables-enter {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms ease, transform 500ms ease;
 }
 
 /*# sourceMappingURL=style.css.map */

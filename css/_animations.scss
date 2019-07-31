@@ -1,0 +1,24 @@
+.hours-enter {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.history-enter {
+  transform: translateY(0);
+}
+
+.tables-left-initial {
+  opacity: 0;
+  transform: translateX(-100vw);
+}
+
+.tables-right-initial {
+  opacity: 0;
+  transform: translateX(100vw);
+}
+
+.tables-enter {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms ease, transform 500ms ease;
+}
