@@ -2,7 +2,7 @@ var date = new Date().getDay();
 var day = document.querySelector('.hours').getElementsByTagName('tr')[date];
 day.id = 'current-day';
 
-var earlyAnimationOffsetInPixels = 200;
+var earlyAnimationOffsetInPixels = 400;
 
 var images = document.querySelectorAll('.image');
 var subheadings = document.querySelectorAll('.subheading');

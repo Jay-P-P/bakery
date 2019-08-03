@@ -150,14 +150,14 @@ body {
 }
 
 .cinnamon-rolls {
-  grid-area: 4 / 10 / 6 / 12;
+  grid-area: 4 / 10 / 5 / 12;
   transform: rotate(10deg);
   @include img-shadow($blue);
 }
 
 .bread {
   grid-area: 5 / 10 / 7 / 12;
-  align-self: center;
+  align-self: flex-start;
   transform: translateY(8rem) rotate(-10deg);
   @include img-shadow($red);
 }
@@ -229,7 +229,7 @@ body {
 }
 
 .history {
-  grid-area: 6 / 2 / 8 / 10;
+  grid-area: 7 / 2 / 8 / 10;
   padding: 5rem 1rem;
   transform: translateY(100%);
   transition: all 500ms ease;
