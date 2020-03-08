@@ -199,7 +199,6 @@ body {
   margin-top: 0.5rem;
   border-spacing: 0px 0px;
   border: 3px solid black;
-  border-radius: 20px;
 }
 .hours table tr td {
   font-family: "Muli", Tahoma, Arial, sans-serif;
@@ -237,7 +236,8 @@ body {
   grid-area: 9/1/11/13;
   background-color: #ff5070;
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .menu-header {
@@ -251,12 +251,13 @@ body {
 }
 
 .category {
-  max-width: 50%;
+  width: 100%;
   margin: 3rem auto 0 auto;
   border-spacing: 3rem 2rem;
 }
 .category thead tr td {
   font-size: 2.4rem;
+  max-width: 50%;
 }
 .category thead tr .heading {
   font-size: 1.2rem;
