@@ -251,7 +251,7 @@ body {
 }
 
 .category {
-  width: 100%;
+  width: 50%;
   margin: 3rem auto 0 auto;
   border-spacing: 3rem 2rem;
 }
@@ -306,9 +306,13 @@ footer p a:hover {
   color: #fe7066;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
   :root {
     font-size: 15px;
+  }
+
+  .category {
+    width: 75%;
   }
 }
 @media screen and (max-width: 480px) {
